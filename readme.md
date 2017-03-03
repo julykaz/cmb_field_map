@@ -8,11 +8,31 @@ The `pw_map` field stores the latitude/longitude values which you can then use t
 
 ## Installation
 
-You can install this field type as you would a WordPress plugin:
-
-1. Download the plugin
-2. Place the plugin folder in your `/wp-content/plugins/` directory
-3. Activate the plugin in the Plugin dashboard
+Install in a theme using composer:
+```json
+{
+ "require": {
+    "php": ">=5.3.0",
+    "composer/installers": "v1.0.12",
+    "webdevstudios/cmb2": "dev-master",
+    "julykaz/cmb_field_map": "dev-master"
+  },
+  "autoload": {
+    "files": [
+      "vendor/cmb2/init.php",
+      "vendor/cmb_field_map/cmb-field-map.php"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": [
+        "webdevstudios/cmb2",
+        "julykaz/cmb_field_map"
+      ]
+    }
+  } 
+}
+```
 
 ## Usage
 
