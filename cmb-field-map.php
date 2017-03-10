@@ -89,6 +89,7 @@ class PW_CMB2_Field_Google_Maps {
  * Enqueue scripts and styles
  */
  public function setup_admin_scripts() {
+  $url = apply_filters( 'cmb_field_map_assets_url', $url );
   $api_url = '//maps.googleapis.com/maps/api/js?libraries=places';
   $api_key = get_option( 'cmb_field_map_settings_option_name' );
   $api_key = $api_key['cmb_field_map_google_map_api'];
@@ -96,8 +97,8 @@ class PW_CMB2_Field_Google_Maps {
    $api_url .= '&key=' . $api_key;
    wp_register_script( 'pw-google-maps-api', $api_url, null, null );
   }
-  wp_enqueue_script( 'pw-google-maps', get_template_directory_uri() . '/vendor/cmb_field_map/js/script.js', array( 'pw-google-maps-api' ), self::VERSION );
-  wp_enqueue_style( 'pw-google-maps', get_template_directory_uri() . '/vendor/cmb_field_map/css/style.css', array(), self::VERSION );
+  wp_enqueue_script( 'pw-google-maps', $url . '/js/script.js', array( 'pw-google-maps-api' ), self::VERSION );
+  wp_enqueue_style( 'pw-google-maps', $url . '/css/style.css', array(), self::VERSION );
  }
 
 }
